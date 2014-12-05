@@ -14,6 +14,7 @@
 		78AF82351A2EBD3400BD67A8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AF82341A2EBD3400BD67A8 /* Images.xcassets */; };
 		78AF82381A2EBD3400BD67A8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78AF82361A2EBD3400BD67A8 /* LaunchScreen.xib */; };
 		78AF82441A2EBD3400BD67A8 /* RumiBoardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 78AF82431A2EBD3400BD67A8 /* RumiBoardTests.m */; };
+		78AF824F1A2EBDE100BD67A8 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78AF824E1A2EBDE100BD67A8 /* SecondViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		78AF823D1A2EBD3400BD67A8 /* RumiBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RumiBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AF82421A2EBD3400BD67A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78AF82431A2EBD3400BD67A8 /* RumiBoardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RumiBoardTests.m; sourceTree = "<group>"; };
+		78AF824D1A2EBDE100BD67A8 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		78AF824E1A2EBDE100BD67A8 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				78AF822C1A2EBD3400BD67A8 /* AppDelegate.m */,
 				78AF822E1A2EBD3400BD67A8 /* ViewController.h */,
 				78AF822F1A2EBD3400BD67A8 /* ViewController.m */,
+				78AF824D1A2EBDE100BD67A8 /* SecondViewController.h */,
+				78AF824E1A2EBDE100BD67A8 /* SecondViewController.m */,
 				78AF82311A2EBD3400BD67A8 /* Main.storyboard */,
 				78AF82341A2EBD3400BD67A8 /* Images.xcassets */,
 				78AF82361A2EBD3400BD67A8 /* LaunchScreen.xib */,
@@ -219,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78AF824F1A2EBDE100BD67A8 /* SecondViewController.m in Sources */,
 				78AF82301A2EBD3400BD67A8 /* ViewController.m in Sources */,
 				78AF822D1A2EBD3400BD67A8 /* AppDelegate.m in Sources */,
 				78AF822A1A2EBD3400BD67A8 /* main.m in Sources */,
@@ -297,7 +303,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -333,7 +339,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -345,6 +351,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = RumiBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -355,6 +362,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = RumiBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
