@@ -26,6 +26,19 @@
     self.player3.delegate = self;
     self.player4.delegate = self;
     
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    toolBar.barStyle = UIBarStyleDefault;
+    [toolBar sizeToFit];
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIBarButtonItem *_commitBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(closeKeyboard:)];
+    NSArray *toolBarItems = [NSArray arrayWithObjects:spacer,_commitBtn, nil];
+    [toolBar setItems:toolBarItems animated:YES];
+    
+    self.player1.inputAccessoryView = toolBar;
+    self.player2.inputAccessoryView = toolBar;
+    self.player3.inputAccessoryView = toolBar;
+    self.player4.inputAccessoryView = toolBar;
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -41,6 +54,14 @@
     NSLog(@"%@",self.player1.text);
     // 改行しない.
     return NO;
+}
+
+- (void)closeKeyboard:(id)sender{
+    [self.player1 resignFirstResponder];
+    [self.player2 resignFirstResponder];
+    [self.player3 resignFirstResponder];
+    [self.player4 resignFirstResponder];
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

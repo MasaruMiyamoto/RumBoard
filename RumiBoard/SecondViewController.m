@@ -20,6 +20,33 @@
 @property (weak, nonatomic) IBOutlet UITextField *p3text;
 @property (weak, nonatomic) IBOutlet UITextField *p4text;
 
+@property (weak, nonatomic) IBOutlet UILabel *fTelop;
+@property (weak, nonatomic) IBOutlet UILabel *fp1;
+@property (weak, nonatomic) IBOutlet UILabel *fp2;
+@property (weak, nonatomic) IBOutlet UILabel *fp3;
+@property (weak, nonatomic) IBOutlet UILabel *fp4;
+
+@property (weak, nonatomic) IBOutlet UILabel *sTelop;
+@property (weak, nonatomic) IBOutlet UILabel *sBar;
+@property (weak, nonatomic) IBOutlet UILabel *sp1;
+@property (weak, nonatomic) IBOutlet UILabel *sp2;
+@property (weak, nonatomic) IBOutlet UILabel *sp3;
+@property (weak, nonatomic) IBOutlet UILabel *sp4;
+
+@property (weak, nonatomic) IBOutlet UILabel *tTelop;
+@property (weak, nonatomic) IBOutlet UILabel *tBer;
+@property (weak, nonatomic) IBOutlet UILabel *tp1;
+@property (weak, nonatomic) IBOutlet UILabel *tp2;
+@property (weak, nonatomic) IBOutlet UILabel *tp3;
+@property (weak, nonatomic) IBOutlet UILabel *tp4;
+
+@property (weak, nonatomic) IBOutlet UILabel *foTelop;
+@property (weak, nonatomic) IBOutlet UILabel *foBar;
+@property (weak, nonatomic) IBOutlet UILabel *fop1;
+@property (weak, nonatomic) IBOutlet UILabel *fop2;
+@property (weak, nonatomic) IBOutlet UILabel *fop3;
+@property (weak, nonatomic) IBOutlet UILabel *fop4;
+
 @end
 
 @implementation SecondViewController
@@ -32,7 +59,21 @@
     self.p3text.delegate = self;
     self.p4text.delegate = self;
     
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    toolBar.barStyle = UIBarStyleDefault;
+    [toolBar sizeToFit];
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIBarButtonItem *_commitBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(closeKeyboard:)];
+    NSArray *toolBarItems = [NSArray arrayWithObjects:spacer,_commitBtn, nil];
+    [toolBar setItems:toolBarItems animated:YES];
+    
+    self.p1text.inputAccessoryView = toolBar;
+    self.p2text.inputAccessoryView = toolBar;
+    self.p2text.inputAccessoryView = toolBar;
+    self.p4text.inputAccessoryView = toolBar;
+    
     // Do any additional setup after loading the view.
+    [self firstApper:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,12 +94,11 @@
     self.p4label.text = p4;
 }
 
-- (BOOL) textFieldShouldReturn:(UITextField *)textField
-{
-    // キーボードの非表示.
-    [self.view endEditing:YES];
-    // 改行しない.
-    return NO;
+- (void)closeKeyboard:(id)sender{
+    [self.p1text resignFirstResponder];
+    [self.p2text resignFirstResponder];
+    [self.p3text resignFirstResponder];
+    [self.p4text resignFirstResponder];
 }
 /*
 #pragma mark - Navigation
@@ -69,5 +109,23 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)firstApper:(BOOL)flag{
+    [self apper:self.fTelop :flag];
+    [self apper:self.fp1 :flag];
+    [self apper:self.fp1 :flag];
+    [self apper:self.fp2 :flag];
+    [self apper:self.fp3 :flag];
+    [self apper:self.fp4 :flag];
+}
+
+- (void)apper:(UILabel *)sender :(BOOL)flag{
+    sender.hidden = flag;
+}
+- (IBAction)addButoon:(id)sender {
+}
+
+- (IBAction)finishButton:(id)sender {
+}
 
 @end
