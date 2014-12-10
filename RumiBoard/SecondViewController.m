@@ -54,6 +54,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *finish3;
 @property (weak, nonatomic) IBOutlet UILabel *finish4;
 
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 @end
 
@@ -197,8 +198,23 @@
             break;
     }
     
+    [self finish];
     
-    AddNum++;
+    if(AddNum <= 4){
+        AddNum++;
+        if(AddNum == 5)
+            [self.addButton setTitle: @"もう一回" forState:UIControlStateNormal];
+    }else{
+        AddNum = 1;
+        [self initScore];
+        [self firstApper:YES];
+        [self secondApper:YES];
+        [self thirdApper:YES];
+        [self forthApper:YES];
+        [self initScore];
+        [self initText];
+        [self.addButton setTitle: @"追加" forState:UIControlStateNormal];
+    }
 }
 
 -(void)inputScore:(UILabel *)label1 :(UILabel *)label2 :(UILabel *)label3 :(UILabel *)label4{
@@ -249,24 +265,13 @@
     return (int)[text.text integerValue];
 }
 
-- (IBAction)finishButton:(id)sender {
+- (void)finish{
 
     self.finish1.text = [NSString stringWithFormat:@"%d",[self sumScore:self.fp1 :self.sp1 :self.tp1 :self.fop1]];
     self.finish2.text = [NSString stringWithFormat:@"%d",[self sumScore:self.fp2 :self.sp2 :self.tp2 :self.fop2]];
     self.finish3.text = [NSString stringWithFormat:@"%d",[self sumScore:self.fp3 :self.sp3 :self.tp3 :self.fop3]];
     self.finish4.text = [NSString stringWithFormat:@"%d",[self sumScore:self.fp4 :self.sp4 :self.tp4 :self.fop4]];
     
-    [self firstApper:YES];
-    [self secondApper:YES];
-    [self thirdApper:YES];
-    [self forthApper:YES];
-    self.finish1.hidden = NO;
-    self.finish2.hidden = NO;
-    self.finish3.hidden = NO;
-    self.finish4.hidden = NO;
-//    [self initScore];
-    
-    AddNum = 1;
 }
 
 - (int)sumScore:(UILabel *)game1 :(UILabel *)game2 :(UILabel *)game3 :(UILabel *)game4{
@@ -280,6 +285,11 @@
 }
 
 - (void) initScore{
+    self.finish1.text = @"0";
+    self.finish2.text = @"0";
+    self.finish3.text = @"0";
+    self.finish4.text = @"0";
+    
     self.fp1.text = @"0";
     self.fp2.text = @"0";
     self.fp3.text = @"0";
